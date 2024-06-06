@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% block title %}Einträge anfertigen{% endblock %} {% block
+content %}
+<form method="POST">
+  <h3 align="center">Eintrag</h3>
+  <div class="form-group">
+    <label for="r_object">Was wurde Repariert?</label>
+    <input
+      type="text"
+      class="form-control"
+      id="r_object"
+      name="r_object"
+      placeholder="Objekt eintragen..."
+    />
+  </div>
+  <div class="form-group">
+    <label for="location">Stand-/Lagerort</label>
+    <input
+      type="text"
+      class="form-control"
+      id="location"
+      name="location"
+      placeholder="Stand- bzw. Lagerort eintragen..."
+    />
+  </div>
+  <div class="form-group">
+    <label for="tool">Womit wurde das Objekt bearbeitet?</label>
+    <input
+      type="text"
+      class="form-control"
+      id="tool"
+      name="tool"
+      placeholder="Werkzeug, o. Ä. angeben..."
+    />
+  </div>
+  <div class="form-group">
+    <label for="next_maintenance">Nächste Wartung/Reparatur?</label>
+    <input
+      type="text"
+      class="form-control"
+      id="next_maintenance"
+      name="next_maintenance"
+      placeholder="Wann soll die nächste Wartung/Reparatur sein? (bspw. 3 Monate)"
+    />
+  </div>
+  <div class="form-group">
+    <label for="r_note">Notizen zur Wartung/Reparatur</label>
+    <input
+      type="text"
+      class="form-control"
+      id="r_note"
+      name="r_note"
+      placeholder="Notiz eintragen..."
+    />
+  </div>
+  <br />
+  <button type="submit" class="btn btn-success">Eintrag hinzufügen</button>
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<h1 align="center">Nächste Wartungen</h1>
+{% if user.repairs %}
+<ul class="list-group list-group-flush" id="repairs">
+  {% for repair in user.repairs %}
+  <li class="list-group-item">
+    {{repair.r_object}} ({{repair.location}}): 
+    <p class="text-danger">Nächste Wartung: {{ repair.next_maintenance }}</p>
+    <p class="text-secondary">-->Letzte Wartung: {{repair.last_maintenance}}</p>
+    <p class="text-secondary">-->Notizen: {{repair.r_note}}</p>    
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+  <h6 align="center" class="text-danger">Noch keine Einträge zu Wartungen oder Reparaturen</h6>
+{% endif %}
+{% endblock %}
