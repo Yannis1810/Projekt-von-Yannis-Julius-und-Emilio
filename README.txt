@@ -1,5 +1,6 @@
 Q2 SQL-Projekt: Yannis, Julius, Emilio:
 Empfohlene Reperaturen, Wartungen, etc.
 
-Datenbank wird automatisch erstellt beim starten von main.py
---> momentan muss man sich noch registrieren und es sind keine Konten zum anmelden hinterlegt
+Bis jetzt 2 Konten zum Testen und ausprobieren angelegt.
+1. Konto: Email: user@email Passwort: 123456
+2. Konto: Email: testuser@email Passwort: 123456
