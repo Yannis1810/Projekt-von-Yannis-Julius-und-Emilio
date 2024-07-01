@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %}Reparaturen{% endblock %} {% block content %}
+<h1 align="center">Konto und Optionen</h1>
+
+<a>Möchtest du dein Konto wechseln?
+<div class="dropdown">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">Konto wechseln</button>
+  <form method="POST" class="dropdown-menu p-4">
+    <div class="mb-3">
+    <label for="email">Email Adresse</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Email eingeben"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="password">Passwort</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      placeholder="Passwort eingeben"
+    />
+    <p></p>
+    <button type="submit" class="btn btn-primary">Konto wechseln</button>
+  </form>
+</div>
+</a>
+
+<p></p>
+<p></p>
+
+<p>
+Du möchtest dich ausloggen? <a href="/logout" class="text-primary">Klicke hier.</a>
+</p>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}Reparaturen{% endblock %} {% block content %}
+<h1 align="center">Neue Wartungen/Reparaturen</h1>
+</br>
+<center><a href="/database1" class="text-primary">Klicke auf den Text, um einen neuen Eintrag zu tätigen und diesen zu den nächsten Wartungen hinzuzufügen.</a></center>
+
+</br>
+<hr class="divider">
+</br>
+
+<h1 align="center">Nächste Wartungen</h1>
+{% if user.repairs %}
+<ul class="list-group list-group-flush" id="repairs">
+  {% for repair in user.repairs %}
+  <li class="list-group-item">
+    {{repair.r_object}} ({{repair.location}}): 
+    <button type="button" class="close" onClick="deleteRepair({{ repair.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <p class="text-danger">Nächste Wartung: {{ repair.next_maintenance }}</p>
+    <p class="text-secondary">-->Letzte Wartung: {{repair.last_maintenance}}</p>
+    <p class="text-secondary">-->Notizen: {{repair.r_note}}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+  <h6 align="center" class="text-danger">Noch keine Einträge zu Wartungen oder Reparaturen</h6>
+{% endif %}
+
+{% endblock %}
