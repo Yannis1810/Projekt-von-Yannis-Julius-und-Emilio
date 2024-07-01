@@ -1,2 +1,0 @@
-css Dateien von Bootstrap.com
-(ebenso die Links in base.html, um auf die Designs zugreifen zu können)
