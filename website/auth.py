@@ -65,3 +65,26 @@ def sign_up():
             return redirect(url_for('views.home')) # User wird zur Startseite weitergeleitet
 
     return render_template("sign_up.html", user=current_user)
+
+@auth.route('/account', methods=["GET", "POST"])
+@login_required
+def account():
+    if request.method == 'POST': # wird in login.html auf 'Post' eingestellt
+        logout_user()
+        email = request.form.get('email') # angaben werden aus dem Formular ausgelesen
+        password = request.form.get('password')
+
+        user = User.query.filter_by(email=email).first() # .first() ist hier eig unnötig, weil Email ein unique PK ist und somit sowieso nur 1 Ergebnis max. erscheinen sollte und dies dann nur zeigen würde, dasss die email bereits existiert
+        print(email,password,user)
+        if user: # wenn es den User mit der Email Adresse schon gibt ...
+            if user.password == password: # Passwort wird überprüft
+                flash('Erfolgreich angemeldet!', category='erfolg') # Nachricht die dabei angezeigt bzw eingeblendet wird
+                login_user(user, remember=True)
+                return redirect(url_for('views.home')) # User wird zur Startseite weitergeleitet
+            else:
+                flash('Falsches Passwort, versuche es erneut.', category='fehler')
+                return redirect(url_for('auth.login'))
+        else:
+            flash('Email existiert nicht, versuche es erneut oder registriere dich.', category='fehler') # wenn die Email des Users noch nicht registriert wurde
+
+    return render_template("account.html", user=current_user)

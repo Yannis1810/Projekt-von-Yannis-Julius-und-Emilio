@@ -3,12 +3,13 @@ from flask_login import UserMixin
 from sqlalchemy.sql import func
 import sqlite3
 from flask_login import current_user
+import datetime
 
 
 class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     data = db.Column(db.String(10000))
-    date = db.Column(db.DateTime(timezone=True), default=func.now())
+    date = db.Column(db.DateTime(timezone=True), default=func.cest.now()) #hier func.now(), falls es nicht funktioniert
     user_id = db.Column(db.Integer, db.ForeignKey('user.id')) # Fremdschlüssel
 
 
@@ -31,3 +32,8 @@ class Repair(db.Model):
     r_note = db.Column(db.String(10000))
     user_r_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     
+class Trash(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    kind = db.Column(db.String(100), primary_key=True)
+    plz = db.Column(db.String(5), primary_key=True)
+    date = db.Column(db.Integer)

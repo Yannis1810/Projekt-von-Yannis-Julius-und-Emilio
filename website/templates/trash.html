@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block title %}Abfallkalender{% endblock %} {% block content %}
+<h1 align="center">Müllplan</h1>
+<form method="POST">
+  <div class="form-group">
+    <label for="plz">Postleitzahl: (bis jetzt nur: 35647, 61250, 61350 (als Beispiele))</label>
+    <input
+      type="text"
+      class="form-control"
+      id="plz"
+      name="plz"
+      placeholder="Postleitzahl eingeben"
+    />
+  </div>
+  <button type="submit" class="btn btn-success">Bestätigen</button>
+</form>
+
+<img src="{{tr_img1}}" alt="Abfallkalender1">
+<img src="{{tr_img2}}" alt="Abfallkalender2">
+
+{% endblock %}
